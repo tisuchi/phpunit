@@ -1,1 +1,1 @@
-C:30:"PHPUnit\Runner\TestResultCache":90:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:1:{s:30:"SampleTest::test_a_sample_test";d:0.007;}}}
+C:30:"PHPUnit\Runner\TestResultCache":190:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:3:{s:36:"UserTest::test_a_user_has_first_name";d:0.002;s:35:"UserTest::test_a_user_has_last_name";d:0;s:35:"UserTest::test_a_user_has_full_name";d:0;}}}
