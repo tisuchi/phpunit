@@ -35,4 +35,15 @@ class UserTest extends \PHPUnit\Framework\TestCase{
 
 		return $salt . $text . $salt;
 	}
+
+	public function test_a_user_can_set_email()
+	{
+		$email = 'tisuchi@gmail.com';
+
+		$user = new \App\Models\User;
+		
+		$user->setEmail($email);
+
+		$this->assertEquals($user->getEmail(), $email);
+	}
 }

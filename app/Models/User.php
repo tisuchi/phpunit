@@ -8,6 +8,8 @@ class User {
 
 	public $full_name;
 
+	public $email;
+
 	public function setFirstName($firstName)
 	{
 		$this->first_name = trim($firstName);
@@ -36,6 +38,16 @@ class User {
 	public function getFullName()
 	{
 		return $this->full_name;
+	}
+
+	public function setEmail($email)
+	{
+		$this->email = $email;
+	}
+
+	public function getEmail()
+	{
+		return $this->email;
 	}
 
 }
