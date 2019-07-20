@@ -2,31 +2,32 @@
 
 class UserTest extends \PHPUnit\Framework\TestCase{
 
+	protected $user; 
+
+	public function setUp()
+	{
+		$this->user = new \App\Models\User;
+	}
+
 	public function test_a_user_has_first_name()
 	{
-		$user = new \App\Models\User;
+		$this->user->setFirstName($this->every_input_should_trim('Thouhedul'));
 
-		$user->setFirstName($this->every_input_should_trim('Thouhedul'));
-
-		$this->assertEquals($user->getFirstName(), 'Thouhedul');
+		$this->assertEquals($this->user->getFirstName(), 'Thouhedul');
 	}
 
 	public function test_a_user_has_last_name()
 	{
-		$user = new \App\Models\User;
+		$this->user->setLastName($this->every_input_should_trim('Islam'));
 
-		$user->setLastName($this->every_input_should_trim('Islam'));
-
-		$this->assertEquals($user->getLastName(), 'Islam');
+		$this->assertEquals($this->user->getLastName(), 'Islam');
 	}
 
 	public function test_a_user_has_full_name()
 	{
-		$user = new \App\Models\User;
+		$this->user->setFullName($this->every_input_should_trim('Thouhedul Islam'));
 
-		$user->setFullName($this->every_input_should_trim('Thouhedul Islam'));
-
-		$this->assertEquals($user->getFullName(), 'Thouhedul Islam');
+		$this->assertEquals($this->user->getFullName(), 'Thouhedul Islam');
 	}
 
 	public function every_input_should_trim($text)
@@ -40,22 +41,18 @@ class UserTest extends \PHPUnit\Framework\TestCase{
 	{
 		$email = 'tisuchi@gmail.com';
 
-		$user = new \App\Models\User;
-		
-		$user->setEmail($email);
+		$this->user->setEmail($email);
 
-		$this->assertEquals($user->getEmail(), $email);
+		$this->assertEquals($this->user->getEmail(), $email);
 	}
 
 	public function test_a_email_variable_should_contain_corrent_value()
 	{
-		$user = new \App\Models\User;
+		$this->user->setFirstName('Thouhedul');
+		$this->user->setLastName('Islam');
+		$this->user->setEmail('tisuchi@gmail.com');
 
-		$user->setFirstName('Thouhedul');
-		$user->setLastName('Islam');
-		$user->setEmail('tisuchi@gmail.com');
-
-		$emailVariables = $user->getEmailVariables();
+		$emailVariables = $this->user->getEmailVariables();
 
 		$this->assertArrayHasKey('full_name', $emailVariables);
 		$this->assertArrayHasKey('email', $emailVariables);
